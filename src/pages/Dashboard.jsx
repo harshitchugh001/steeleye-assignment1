@@ -19,8 +19,6 @@ const Dashboard = () => {
   const [searchText, setSearchText] = useState("");
   const [selectedOrderDetails, setSelectedOrderDetails] = useState({});
   const [selectedOrderTimeStamps, setSelectedOrderTimeStamps] = useState({});
-  const target = mockData.header.returnedHits;
-  const secondary = target +" orders";
 
   const filterRows = (rows, searchText) => {
     if (!searchText) {
@@ -36,14 +34,15 @@ const Dashboard = () => {
   return (
     <div>
       <div className={styles.header}>
-        <HeaderTitle primaryTitle="Orders" secondaryTitle={secondary}  />
+        <HeaderTitle primaryTitle="Orders" secondaryTitle="6 orders" />
         <div className={styles.actionBox}>
           <Search
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <Dropdown
-            options={["AUD","BGN","BRL","CAD","CHF","CNY","CZK","DKK","EUR","GBP","HKD","HRK","HUF","IDR","ILS","INR","JPY","KRW","MXN","MYR","NOK","NZD","PHP","PLN","RON","SEK","SGD","THB","TRY","USD","ZAR"]}
+            options={["GBP", "USD", "JPY", "EUR"]}
+
             onChange={(e) => setCurrency(e.target.value)}
             selectedItem={currency}
           />

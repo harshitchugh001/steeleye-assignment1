@@ -1,8 +1,8 @@
 import styles from "./ListRow.module.css";
 
-const ListCell = ({ children, onSelect, row,index }) => {
+const ListCell = ({ children}) => {
   return (
-    <tr onClick={() => onSelect(index)} className={styles.cell}>
+    <tr  className={styles.cell}>
       {children}
     </tr>
   );

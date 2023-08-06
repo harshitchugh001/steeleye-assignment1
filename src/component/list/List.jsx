@@ -15,9 +15,7 @@ const List = ({ rows, currency,onSelect }) => {
   const getCurrencyValue = (row) => {
     return row.bestExecutionData.orderVolume[currency] || "N/A";
   };
-  const handleSelect=(index)=>{
-    onSelect(index)
-  }
+
   return (
     <table className={styles.container}>
       <thead>
@@ -30,8 +28,8 @@ const List = ({ rows, currency,onSelect }) => {
         </ListHeader>
       </thead>
       <tbody>
-        {rows.map((row,index) => (
-          <ListRow key={index} index={index} onSelect={handleSelect} row={row}>
+        {rows.map((row) => (
+          <ListRow row={row}>
           <ListRowCell>{row["&id"]}</ListRowCell>
             <ListRowCell>{row.executionDetails.buySellIndicator}</ListRowCell>
             <ListRowCell>{row.executionDetails.orderStatus}</ListRowCell>
